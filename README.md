@@ -18,6 +18,11 @@ Proyek ini terdiri dari **empat LED**:
 
 ---
 
+## 📂 Node Diagram
+![image](https://github.com/user-attachments/assets/a2985024-1867-4acd-90a8-23330d7508dc)
+
+---
+
 ## 🛠️ **Peralatan yang Dibutuhkan**
 - 💻 **Perangkat Lunak**:
   - STM32CubeIDE
@@ -96,5 +101,7 @@ Proyek ini terdiri dari **empat LED**:
 ---
 
 ## 🧪 **Hasil Percobaan**
-
+- Normal
+https://github.com/user-attachments/assets/02c905cb-ee0c-4d9a-bdb1-fe7d34dd9d13
+- Konflik
 
