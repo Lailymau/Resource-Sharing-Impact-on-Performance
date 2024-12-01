@@ -59,11 +59,24 @@ Proyek ini terdiri dari **empat LED**:
 
 ---
 
-## 🌟 **Hasil yang Diharapkan**
-- 🟢 **LED Hijau**: Berkedip cepat (interval 200 ms).  
-- 🔴 **LED Merah**: Berkedip sedang (interval 550 ms).  
-- 🟠 **LED Oranye**: Berkedip sangat cepat (interval 50 ms, prioritas tinggi).  
-- 🔵 **LED Biru**: Menyala hanya jika terjadi konflik saat tugas mengakses sumber daya bersama.  
+## 🌟 **Output**
+- 🟢 **Green LED (led1)**:
+  - Menyala (HIGH) saat GreenTask aktif.
+  - Masuk ke critical section dengan mengakses fungsi AccessSharedData() yang menggunakan flag StartFlag.
+  - Setelah akses selesai, LED dimatikan (LOW) setelah delay 200 ms.
+  - Siklus diulang setiap 400 ms (200 ms ON dan 200 ms OFF).
+- 🔴 **Red LED (led2)**:
+  - Menyala (HIGH) saat RedTask aktif.
+  - Masuk ke critical section dengan mengakses fungsi AccessSharedData() yang juga menggunakan flag StartFlag.
+  - Setelah akses selesai, LED dimatikan (LOW) setelah delay 550 ms.
+  - Siklus diulang setiap 1,1 detik (550 ms ON dan 550 ms OFF).
+- 🟠 **Orange LED (led4)**:
+  - LED akan berkedip (toggle) secara terus-menerus dengan interval 50 ms.
+  - Tidak masuk ke critical section dan hanya menggunakan fungsi delay osDelay(50).
+- 🔵 **Blue LED (led3)**:
+  - Hanya menyala (HIGH) jika terjadi konflik saat mengakses resource dalam fungsi AccessSharedData().
+  - Konflik terjadi apabila dua atau lebih task mencoba mengakses resource secara bersamaan tanpa pengaturan yang benar (contoh: StartFlag tidak bebas).
+  - Setelah konflik selesai diatasi, LED biru dimatikan (LOW).
 - Semua tugas berjalan mulus tanpa konflik berlebihan, menandakan implementasi multitasking berhasil.
 - Tidak ada konflik sumber daya berlebihan karena penggunaan *critical section* yang tepat.
 - Semua tugas berjalan stabil tanpa memengaruhi performa sistem.
@@ -100,8 +113,10 @@ Proyek ini terdiri dari **empat LED**:
 
 ---
 
-## 🧪 **Hasil Percobaan**
-- Normal
+## 🧪 **Hasil Percobaan Normal**
 https://github.com/user-attachments/assets/02c905cb-ee0c-4d9a-bdb1-fe7d34dd9d13
-- Konflik
 
+---
+
+## 🧪 **Hasil Percobaan Konflik**
+https://github.com/user-attachments/assets/8fbfeb49-37e5-4516-be43-54b0a597771f
